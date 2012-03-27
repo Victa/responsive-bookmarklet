@@ -1,0 +1,126 @@
+// Vars
+$transition-duration:240ms;
+$height-topbar:51px;
+
+// Imports
+@import "compass/reset","compass/css3";
+
+// Base
+html,body{height:100%;}
+
+body{
+    overflow:hidden;
+    background:#000 inline-image('linen.png') 0 0 repeat;
+    position:relative;
+    font:16px/1 "Andale Mono", AndaleMono, monospace,sans-serif;
+    color:#FFF;
+}
+
+a{color:white}
+
+// Styles
+#wrapper {
+    @include transition( all $transition-duration ease);
+    
+    width: 100%;
+    height: 100%;
+    display:block;
+    margin:0 auto;
+    &.noTransitions{
+       @include transition(0);   
+    }
+}
+
+
+body>header{
+    @include background(linear-gradient(rgba(#343434,.75), rgba(#242424,.75)));
+    @include box-shadow(inset 0 1px 0 #5f6164, inset 0 -1px 0 #2e2f2f, 0 1px 3px rgba(#000,.3));
+
+    position:fixed;
+    top:0;left:0;right:0;
+    height:51px;
+    z-index:100;
+}
+
+body>section{
+
+    position:fixed;
+    top:$height-topbar;
+    left:0;right:0;
+    bottom:0;
+    z-index:3;
+    overflow-y:scroll;
+}
+
+#size{
+    position:fixed;
+    top:0;
+    left:0;
+    height:$height-topbar;
+    float:left;
+    line-height:$height-topbar;
+    margin-left:8px;
+    text-shadow:0 -1px 0 black;
+}
+
+#devices{
+    @include border-radius(4px);
+
+    float:right;
+    margin:8px 8px 0 0;
+    border:1px solid #363738;
+    a:first-of-type{
+        @include border-radius(4px 0 0 4px);
+    }
+    a:last-of-type{
+        @include border-radius(0 4px 4px 0);
+        border-right-width:1px;
+    }
+    a{
+        @include background(linear-gradient(rgba(#343434,1), rgba(#242424,1)));
+        @include box-shadow(inset 0 1px 0 #3c3c3c);
+
+        text-decoration:none;
+        border:1px solid #040404;
+        border-right-width:0;
+        float:left;
+        display:block;
+        width:40px;
+        height:30px;
+    }
+
+    a.active{
+        @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
+        @include box-shadow(inset 0 1px 0 #242424);
+        span{opacity:1;}
+    }
+
+    span{
+        text-shadow:0 -1px 0 black;
+        text-align:center;
+        display:block;
+        width:40px;
+        height:30px;
+        text-indent:-9999px;
+        opacity:.75;
+    }
+    a:nth-of-type(1) span,a:nth-of-type(2) span{
+        background:transparent inline-image('icon-ipad.png') 50% 50% no-repeat;
+    }
+    a:nth-of-type(3) span,a:nth-of-type(4) span{
+        background:transparent inline-image('icon-iphone.png') 50% 50% no-repeat;
+    }
+    a:nth-of-type(4) span,a:nth-of-type(1) span{
+        @include rotate(90deg);
+    }
+
+    a:nth-of-type(5) span{
+        text-indent:0;
+        line-height:30px;
+        text-transform:uppercase;
+        font-size:10px;
+    }
+}
+
+
+
