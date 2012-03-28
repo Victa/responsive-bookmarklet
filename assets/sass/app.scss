@@ -22,6 +22,7 @@ a{color:white}
 #wrapper {
     @include transition( all $transition-duration ease);
     
+    background-color:#FFF;
     width: 100%;
     height: 100%;
     display:block;
