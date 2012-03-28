@@ -87,7 +87,10 @@ body>section{
         display:block;
         width:40px;
         height:30px;
+        outline:none;
     }
+    
+    a:active{outline:none;}
 
     a.active{
         @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
