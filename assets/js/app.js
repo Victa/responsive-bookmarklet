@@ -28,7 +28,7 @@
                     wrapper.setAttribute('style','');
                     body.setAttribute('style','');
                     isAnimated = false;
-                }, 240);
+                }, 260);
             } else {
                 isAnimated = false;
             }

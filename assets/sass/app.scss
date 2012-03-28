@@ -12,7 +12,7 @@ body{
     overflow:hidden;
     background:#000 inline-image('linen.png') 0 0 repeat;
     position:relative;
-    font:16px/1 "Andale Mono", AndaleMono, monospace,sans-serif;
+    font:16px/1 "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
     color:#FFF;
 }
 
@@ -104,23 +104,28 @@ body>section{
         text-indent:-9999px;
         opacity:.75;
     }
-    a:nth-of-type(1) span,a:nth-of-type(2) span{
+
+     .tablet-portrait span,.tablet-landscape span{
         background:transparent inline-image('icon-ipad.png') 50% 50% no-repeat;
     }
-    a:nth-of-type(3) span,a:nth-of-type(4) span{
+
+    .smartphone-portrait span,.smartphone-landscape span{
         background:transparent inline-image('icon-iphone.png') 50% 50% no-repeat;
     }
-    a:nth-of-type(4) span,a:nth-of-type(1) span{
+
+    .tablet-portrait span,.smartphone-landscape span{
         @include rotate(90deg);
     }
 
-    a:nth-of-type(5) span{
+    .auto span{
         text-indent:0;
         line-height:30px;
         text-transform:uppercase;
         font-size:10px;
     }
+
 }
+
 
 
 
