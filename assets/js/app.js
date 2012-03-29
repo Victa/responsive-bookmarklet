@@ -15,10 +15,10 @@ window.resbook = {};
         auto = true,
         isResized = false,
         isAnimated = false,
-        resize = function(w,h) {
+        resize = function(w,h,f) {
             w = w || wrapper.clientWidth;
             h = h || wrapper.clientHeight;
-            size.textContent = w + 'x' + h;
+            size.innerHTML = w + 'x' + h;
         },
         setPosition = function(w,h,t){
             var style = 'width:'+w+'px;height:'+h+'px;margin-top:20px;';
@@ -68,8 +68,6 @@ window.resbook = {};
         close = d.querySelector('.close a');
         body = d.querySelector('body');
 
-        resize();
-
         // Events
         [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
           el.addEventListener('click', function(e) {
@@ -118,6 +116,9 @@ window.resbook = {};
         w.addEventListener('resize', function(){
             resize();
         }, false);
+
+        resize();
+        size.style.minWidth = 0;
     });
 
 })(resbook);
