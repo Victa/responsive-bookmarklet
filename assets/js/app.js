@@ -1,11 +1,15 @@
-(function() {
-    // Get Current URL
+// Responsive Bookmarklet namespace
+window.resbook = {};
+
+(function(rb) {
+    // Private var & methods
     var d = document,
         w = window,
         url = d.URL,
         title = d.title,
         wrapper = null,
         devices = null,
+        close = null,
         body = null,
         size = null,
         auto = true,
@@ -42,60 +46,78 @@
           },60);
         };
 
+    // === Public methods ====
+    /**
+     * Change url and the document title with pushState method
+     * @param  {string} u   url of the new page
+     * @param  {title} t title of the new page
+     */
+    rb.changeUrl = function (u,t){
+        d.title = t + ' - Responsive test';
+        if(history.pushState) {
+            history.pushState(null,  null, u);
+        }
+    };
 
-readyElement('wrapper', function(){
+    // "document ready"
+    readyElement('wrapper', function(){
+        // Set var cache
+        wrapper = d.getElementById('wrapper');
+        devices = d.getElementById('devices');
+        size = d.getElementById('size');
+        close = d.querySelector('.close a');
+        body = d.querySelector('body');
 
-    // Set var cache
-    wrapper = d.getElementById('wrapper');
-    devices = d.getElementById('devices');
-    size = d.getElementById('size');
-    body = d.querySelector('body');
+        resize();
 
-    resize();
-
-    // Events
-    [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
-      el.addEventListener('click', function(e) {
-
+        // Events
         [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
-            el.classList.remove('active');
+          el.addEventListener('click', function(e) {
+
+            [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
+                el.classList.remove('active');
+            });
+
+            e.preventDefault();
+            e.stopPropagation();
+            var self = this;
+
+            if((self.classList.contains('auto') && isResized === false) || isAnimated === true)
+                return false;
+
+            isAnimated = true;
+            if(isResized === false){
+                isResized = true;
+                setPosition(w.innerWidth,w.innerHeight);
+            }
+     
+            setTimeout(function(){
+                self.classList.add('active');
+                if(self.classList.contains('smartphone-portrait')){
+                    setPosition(320,480, 'iphone');
+                } else if(self.classList.contains('smartphone-landscape')){
+                    setPosition(480,320, 'iphone');
+                } else if(self.classList.contains('tablet-portrait')){
+                    setPosition(1024,768);
+                } else if(self.classList.contains('tablet-landscape')){
+                    setPosition(768,1024);
+                } else if(self.classList.contains('auto')){
+                    setPosition(w.innerWidth,w.innerHeight, 'auto');
+                }
+            }, 10);
+            
+          });
         });
 
-        e.preventDefault();
-        e.stopPropagation();
-        var self = this;
+        close.addEventListener('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            w.location.reload();
+        }, false);
 
-        if((self.classList.contains('auto') && isResized === false) || isAnimated === true)
-            return false;
-
-        isAnimated = true;
-        if(isResized === false){
-            isResized = true;
-            setPosition(w.innerWidth,w.innerHeight);
-        }
- 
-        setTimeout(function(){
-            self.classList.add('active');
-            if(self.classList.contains('smartphone-portrait')){
-                setPosition(320,480, 'iphone');
-            } else if(self.classList.contains('smartphone-landscape')){
-                setPosition(480,320, 'iphone');
-            } else if(self.classList.contains('tablet-portrait')){
-                setPosition(1024,768);
-            } else if(self.classList.contains('tablet-landscape')){
-                setPosition(768,1024);
-            } else if(self.classList.contains('auto')){
-                setPosition(w.innerWidth,w.innerHeight, 'auto');
-            }
-        }, 10);
-        
-      });
+        w.addEventListener('resize', function(){
+            resize();
+        }, false);
     });
 
-    w.addEventListener('resize', function(){
-        resize();
-    }, false);
-});
-    
-
-})();
+})(resbook);

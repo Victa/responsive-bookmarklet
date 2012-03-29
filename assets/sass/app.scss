@@ -1,6 +1,7 @@
 // Vars
 $transition-duration:240ms;
 $height-topbar:51px;
+$devices-width:208px;
 
 // Imports
 @import "compass/reset","compass/css3";
@@ -12,8 +13,9 @@ body{
     overflow:hidden;
     background:#000 inline-image('linen.jpg') 0 0 repeat;
     position:relative;
-    font:16px/1 "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font:14px/1 "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
     color:#FFF;
+    text-shadow:0 -1px 0 black;
 }
 
 a{color:white}
@@ -54,21 +56,63 @@ body>section{
 }
 
 #size{
-    position:fixed;
+    @include transition(margin $transition-duration ease);
+
+    position:absolute;
     top:0;
     left:0;
+    right:8px;
     height:$height-topbar;
-    float:left;
-    line-height:$height-topbar;
-    margin-left:8px;
-    text-shadow:0 -1px 0 black;
+    line-height:$height-topbar + 2px;
+    text-transform:uppercase;
+    text-align:right;
+}
+
+.close{
+    @include border-radius(4px);
+
+    position:absolute;
+    z-index:1;
+    top:8px;
+    left:8px;
+    border:1px solid #363738;
+    a{
+        @include background(linear-gradient(rgba(#343434,1), rgba(#242424,1)));
+        @include box-shadow(inset 0 1px 0 #3c3c3c);
+        @include border-radius(4px);        
+
+        text-decoration:none;
+        border:1px solid #040404;
+        float:left;
+        display:block;
+        width:30px;
+        height:30px;
+        outline:none;
+        line-height:30px;
+        text-transform:uppercase;
+        font-size:16px;
+        text-align:center;
+        &:hover{
+            @include background(linear-gradient(rgba(#313131,1), rgba(#242424,1)));
+        }
+    }
+    
+    a.active,a:active{
+        @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
+        @include box-shadow(inset 0 1px 0 #242424);
+        outline:none;
+        span{opacity:1;}
+    }
 }
 
 #devices{
     @include border-radius(4px);
 
-    float:right;
-    margin:8px 8px 0 0;
+    position:absolute;
+    z-index:1;
+    top:8px;
+    left:50%;
+    margin-left:-104px;
     border:1px solid #363738;
     a:first-of-type{
         @include border-radius(4px 0 0 4px);
@@ -78,7 +122,7 @@ body>section{
         border-right-width:1px;
     }
     a{
-        @include background(linear-gradient(rgba(#343434,1), rgba(#242424,1)));
+        @include background(linear-gradient(rgba(#313131,1), rgba(#242424,1)));
         @include box-shadow(inset 0 1px 0 #3c3c3c);
 
         text-decoration:none;
@@ -89,18 +133,19 @@ body>section{
         width:40px;
         height:30px;
         outline:none;
+        &:hover{
+            @include background(linear-gradient(rgba(#2c2c2c,1), rgba(#242424,1)));
+        }
     }
     
-    a:active{outline:none;}
-
-    a.active{
+    a.active,a:active{
         @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
         @include box-shadow(inset 0 1px 0 #242424);
+        outline:none;
         span{opacity:1;}
     }
 
     span{
-        text-shadow:0 -1px 0 black;
         text-align:center;
         display:block;
         width:40px;
