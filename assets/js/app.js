@@ -110,7 +110,7 @@ window.resbook = {};
         close.addEventListener('click', function(e){
             e.preventDefault();
             e.stopPropagation();
-            w.location.reload();
+            w.location = d.URL;
         }, false);
 
         w.addEventListener('resize', function(){
