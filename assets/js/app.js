@@ -28,8 +28,8 @@ window.resbook = {};
             size.innerHTML = w + 'x' + h;
         },
         setPosition = function(wh,t){
-            var width = (d == 'auto') ? w.innerWidth : wh[0],
-                height = (d == 'auto') ? w.innerHeight : wh[1],
+            var width = (wh == 'auto') ? w.innerWidth : wh[0],
+                height = (wh == 'auto') ? w.innerHeight : wh[1],
                 style = 'width:'+width+'px;height:'+height+'px;margin-top:20px;';
 
             if (typeof(width) == 'undefined' || typeof(height) == 'undefined') return false;
