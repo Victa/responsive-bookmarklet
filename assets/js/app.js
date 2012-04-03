@@ -34,11 +34,11 @@ window.resbook = {};
 
             if (typeof(width) == 'undefined' || typeof(height) == 'undefined') return false;
 
-            style += (t === 'auto') ? 'margin-top:0;' : '';
+            style += (wh === 'auto') ? 'margin-top:0;' : '';
             wrapper.setAttribute('style',style);
             body.setAttribute('style','min-height:'+height+'px;min-width:'+width+'px;');
             resize(width,height);
-            if(t === 'auto'){
+            if(wh === 'auto'){
                 isResized = false;
                 setTimeout(function(){
                     wrapper.setAttribute('style','');
