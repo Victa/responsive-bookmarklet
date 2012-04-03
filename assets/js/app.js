@@ -38,7 +38,7 @@ window.resbook = {};
             wrapper.setAttribute('style',style);
             body.setAttribute('style','min-height:'+height+'px;min-width:'+width+'px;');
             resize(width,height);
-            if(wh === 'auto'){
+            if(wh === 'auto' && !t){
                 isResized = false;
                 setTimeout(function(){
                     wrapper.setAttribute('style','');
@@ -98,7 +98,7 @@ window.resbook = {};
             isAnimated = true;
             if(isResized === false){
                 isResized = true;
-                setPosition(w.innerWidth,w.innerHeight);
+                setPosition(sizes.auto,true);
             }
      
             setTimeout(function(){
