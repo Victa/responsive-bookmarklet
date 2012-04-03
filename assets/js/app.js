@@ -132,10 +132,10 @@ window.resbook = {};
         w.addEventListener('keyup', function(e){
             var key = e.keyCode ? e.keyCode : e.charCode,
                 keys = {
-                    49: 'smartphonePortrait',
-                    50: 'smartphoneLandscape',
-                    51: 'tabletPortrait',
-                    52: 'tabletLandscape',
+                    49: 'tabletPortrait',
+                    50: 'tabletLandscape',
+                    51: 'smartphonePortrait',
+                    52: 'smartphoneLandscape',
                     53: 'auto'
                 };
 
