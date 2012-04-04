@@ -52,8 +52,22 @@ body{
     } 
 }
 
-iframe{
+
+
+footer{
     position:fixed;
-    bottom:10px;left:50%;margin-left:-43px;
-    width:86px!important;
+    left:0;right:0;
+    bottom:10px;
+    text-align:center;
+    font-weight:normal;
+    color:#AAA;
+    text-shadow:0 1px 0 white;
+    a{color:#7D91A9;text-decoration:none;}
+    a:hover{color:adjust-lightness(#7D91A9, 10);}
+    iframe{
+        position:absolute;
+        bottom:20px;
+        left:50%;margin-left:-50px;
+        width:100px!important;
+    }    
 }
