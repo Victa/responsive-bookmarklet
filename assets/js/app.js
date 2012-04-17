@@ -82,7 +82,7 @@ window.resbook = {};
 
         // Detect webkit browser
         if(window.chrome || (window.getComputedStyle && !window.globalStorage && !window.opera)){
-            wrapper.setAttribute('scrolling','no');
+            //wrapper.setAttribute('scrolling','no');
         }
 
         // Events
