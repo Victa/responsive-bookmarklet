@@ -80,6 +80,11 @@ window.resbook = {};
         close = d.querySelector('.close a');
         body = d.querySelector('body');
 
+        // Detect webkit browser
+        if(window.chrome || (window.getComputedStyle && !window.globalStorage && !window.opera)){
+            wrapper.setAttribute('scrolling','no');
+        }
+
         // Events
         [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
           el.addEventListener('click', function(e) {
@@ -148,6 +153,7 @@ window.resbook = {};
 
         resize();
         size.style.minWidth = 0;
+
     });
 
 })(resbook);
