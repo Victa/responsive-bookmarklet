@@ -24,7 +24,11 @@ a{color:white}
 #wrapper {
     @include transition( all $transition-duration ease);
     @include box-shadow(0 0 12px 1px black);
+    
     -webkit-transform:translate3d(0,0,0);
+
+    &::-webkit-scrollbar { display: none; }
+    &::-moz-scrollbar { display: none; }
 
     background-color:#FFF;
     width: 100%;
