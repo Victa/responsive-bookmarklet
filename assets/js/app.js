@@ -23,6 +23,15 @@ window.resbook = {};
             tabletLandscape: [768, 1024],
             auto: 'auto'
         },
+        refreshCss = function(){
+            var ifrm = d.querySelector('#wrapper iframe');
+            ifrm = (ifrm.contentWindow) ? ifrm.contentWindow : (ifrm.contentDocument.document) ? ifrm.contentDocument.document : ifrm.contentDocument;
+            var //t = ifrm.document.createTextNode("(function(){var r=function r(){var h,a,f;a=document.getElementsByTagName('link');for(h=0;h<a.length;h++){f=a[h];if(f.rel.toLowerCase().match(/stylesheet/)&&f.href){var g=f.href.replace(/(&|%5C?)forceReload=\\d+/,'');f.href=g+(g.match(/\\?/)?'&':'?')+'forceReload='+(new Date().valueOf())}}};setTimeout(function(){r()},1000)})()"),
+                t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','http://cssrefresh.frebsite.nl/js/cssrefresh.js');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
+                s = ifrm.document.createElement("script");
+            s.appendChild(t);
+            ifrm.document.body.appendChild(s);
+        },
         resize = function(w,h,f) {
             w = w || wrapper.clientWidth;
             h = h || wrapper.clientHeight;
@@ -162,6 +171,7 @@ window.resbook = {};
 
         }, false);
 
+        refreshCss();
         resize();
         size.style.minWidth = 0;
 
