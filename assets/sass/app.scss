@@ -53,7 +53,9 @@ a{color:white}
     }
 
     &[data-device="smartphonePortrait"].keyboard,
-    &[data-device="smartphoneLandscape"].keyboard{
+    &[data-device="smartphoneLandscape"].keyboard,
+    &[data-device="tabletLandscape"].keyboard,
+    &[data-device="tabletPortrait"].keyboard{
         @include box-sizing(border-box);
         padding-top:20px;
         .keyboard-bg{
@@ -69,6 +71,14 @@ a{color:white}
     &[data-device="smartphoneLandscape"].keyboard {
         padding-bottom:194px;
         .keyboard-bg{background:inline-image('iphone-landscape.png');}
+    }
+    &[data-device="tabletLandscape"].keyboard {
+        padding-bottom:307px;
+        .keyboard-bg{background:inline-image('ipad-landscape.png');}
+    }
+    &[data-device="tabletPortrait"].keyboard {
+        padding-bottom:395px;
+        .keyboard-bg{background:inline-image('ipad-portrait.png');}
     }
 }
 
