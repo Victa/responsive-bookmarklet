@@ -22,7 +22,7 @@ a{color:white}
 
 // Styles
 #wrapper {
-    @include transition( all $transition-duration ease);
+    @include transition(height $transition-duration ease, width $transition-duration ease, margin $transition-duration ease);
     @include box-shadow(0 0 12px 1px black);
     
     -webkit-transform:translate3d(0,0,0);
@@ -43,18 +43,32 @@ a{color:white}
     &.noTransitions{
        @include transition(0);   
     }
-    &.keyboard:after{
-        content:"";
+    .keyboard-bg{
+        @include translateY(-20px);
         display:block;
+        opacity:0;
         position:absolute;
         top:0;bottom:0;right:0;left:0;
         pointer-events:none;
     }
-    &[data-device="smartphonePortrait"].keyboard:after{
-        background:inline-image('iphone-portrait.png');
+
+    &[data-device="smartphonePortrait"].keyboard,
+    &[data-device="smartphoneLandscape"].keyboard{
+        @include box-sizing(border-box);
+        padding-top:20px;
+        .keyboard-bg{
+            @include translateY(0px);
+            opacity:1;
+        }
     }
-    &[data-device="smartphoneLandscape"].keyboard:after{
-        background:inline-image('iphone-landscape.png');
+    
+    &[data-device="smartphonePortrait"].keyboard {
+        padding-bottom:260px;
+        .keyboard-bg{background:inline-image('iphone-portrait.png');}
+    }
+    &[data-device="smartphoneLandscape"].keyboard {
+        padding-bottom:194px;
+        .keyboard-bg{background:inline-image('iphone-landscape.png');}
     }
 }
 
@@ -146,6 +160,15 @@ header .keyboard{
     top:auto;
     float:left;
     margin:8px 0 0 8px;
+    a{text-indent:-9999px;}
+    a:after{
+        opacity:.75;
+        content:"";
+        display:block;
+        position:absolute;
+        top:0;left:0;right:0;bottom:0;
+        background:inline-image('icon-keyboard.png') 50% 50% no-repeat;
+    }
 }
 
 #devices{
@@ -214,6 +237,13 @@ header .keyboard{
         line-height:30px;
         text-transform:uppercase;
         font-size:10px;
+    }
+
+    @media screen and (max-width: 480px) {
+        position:relative;
+        top:auto;left:0;
+        float:left;
+        margin:8px 0 0 8px;
     }
 
 }
