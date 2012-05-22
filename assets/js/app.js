@@ -10,6 +10,7 @@ window.resbook = {};
         wrapper = null,
         devices = null,
         close = null,
+        keyboard = null,
         body = null,
         size = null,
         auto = true,
@@ -27,7 +28,7 @@ window.resbook = {};
             h = h || wrapper.clientHeight;
             size.innerHTML = w + 'x' + h;
         },
-        setPosition = function(wh,t){
+        setPosition = function(wh,t,cl){
             var width = (wh == 'auto') ? w.innerWidth : wh[0],
                 height = (wh == 'auto') ? w.innerHeight : wh[1],
                 style = 'width:'+width+'px;height:'+height+'px;margin-top:20px;';
@@ -36,6 +37,7 @@ window.resbook = {};
 
             style += (wh === 'auto') ? 'margin-top:0;' : '';
             wrapper.setAttribute('style',style);
+            wrapper.setAttribute('data-device',cl);
             body.setAttribute('style','min-height:'+height+'px;min-width:'+width+'px;');
             resize(width,height);
             if(wh === 'auto' && !t){
@@ -73,11 +75,13 @@ window.resbook = {};
 
     // "document ready"
     readyElement('wrapper', function(){
+
         // Set var cache
         wrapper = d.getElementById('wrapper');
         devices = d.getElementById('devices');
         size = d.getElementById('size');
         close = d.querySelector('.close a');
+        keyboard = d.querySelector('.keyboard a');
         body = d.querySelector('body');
 
         // Detect webkit browser
@@ -109,15 +113,15 @@ window.resbook = {};
             setTimeout(function(){
                 self.classList.add('active');
                 if(self.classList.contains('smartphone-portrait')){
-                    setPosition(sizes.smartphonePortrait);
+                    setPosition(sizes.smartphonePortrait, false,'smartphonePortrait');
                 } else if(self.classList.contains('smartphone-landscape')){
-                    setPosition(sizes.smartphoneLandscape);
+                    setPosition(sizes.smartphoneLandscape, false, 'smartphoneLandscape');
                 } else if(self.classList.contains('tablet-portrait')){
-                    setPosition(sizes.tabletPortrait);
+                    setPosition(sizes.tabletPortrait, false, 'tabletPortrait');
                 } else if(self.classList.contains('tablet-landscape')){
-                    setPosition(sizes.tabletLandscape);
+                    setPosition(sizes.tabletLandscape, false, 'tabletLandscape');
                 } else if(self.classList.contains('auto')){
-                    setPosition(sizes.auto);
+                    setPosition(sizes.auto, false, 'auto');
                 }
             }, 10);
             
@@ -128,6 +132,13 @@ window.resbook = {};
             e.preventDefault();
             e.stopPropagation();
             w.location = d.URL;
+        }, false);
+
+        keyboard.addEventListener('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            keyboard.classList.toggle('active');
+            wrapper.classList.toggle('keyboard');
         }, false);
 
         w.addEventListener('resize', function(){
@@ -147,7 +158,7 @@ window.resbook = {};
             // Quit now if the key isn't in our object map
             if (typeof(keys[key]) == 'undefined') return false;
 
-            setPosition(sizes[keys[key]]);
+            setPosition(sizes[keys[key]], false, keys[key]);
 
         }, false);
 

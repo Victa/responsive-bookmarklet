@@ -27,16 +27,34 @@ a{color:white}
     
     -webkit-transform:translate3d(0,0,0);
 
-    &::-webkit-scrollbar { display: none; }
-    &::-moz-scrollbar { display: none; }
+    iframe::-webkit-scrollbar { display: none; }
+    iframe::-moz-scrollbar { display: none; }
 
+    position:relative;
     background-color:#FFF;
     width: 100%;
     height: 100%;
     display:block;
     margin:0 auto;
+    iframe{
+        width: 100%;
+        height: 100%;
+    }
     &.noTransitions{
        @include transition(0);   
+    }
+    &.keyboard:after{
+        content:"";
+        display:block;
+        position:absolute;
+        top:0;bottom:0;right:0;left:0;
+        pointer-events:none;
+    }
+    &[data-device="smartphonePortrait"].keyboard:after{
+        background:inline-image('iphone-portrait.png');
+    }
+    &[data-device="smartphoneLandscape"].keyboard:after{
+        background:inline-image('iphone-landscape.png');
     }
 }
 
@@ -84,7 +102,7 @@ body>section{
     }
 }
 
-.close{
+header .keyboard,.close{
     @include border-radius(4px);
 
     color:#EEE;
@@ -120,6 +138,14 @@ body>section{
         outline:none;
         span{opacity:1;}
     }
+}
+
+header .keyboard{
+    right:auto;
+    position:relative;
+    top:auto;
+    float:left;
+    margin:8px 0 0 8px;
 }
 
 #devices{
