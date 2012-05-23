@@ -79,7 +79,7 @@ window.resbook = {};
         if(history.pushState) {
             history.pushState(null,  null, u);
         }
-        refreshCss();
+        //refreshCss();
     };
 
     // "document ready"
@@ -171,7 +171,7 @@ window.resbook = {};
 
         }, false);
 
-        refreshCss();
+        //refreshCss();
         resize();
         size.style.minWidth = 0;
 
