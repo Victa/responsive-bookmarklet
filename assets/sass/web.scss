@@ -1,10 +1,10 @@
 @import "compass/reset","compass/css3";
 
-body,html{height:100%;}
+body,html{height:100%;overflow:hidden;}
 
 body{
     @include background-image(radial-gradient(center, ellipse cover, rgba(255,255,255,.4) 0%,rgba(255,255,255,0) 100%), linear-gradient(top, rgba(240,240,240,0.97), rgba(240,240,240,0.98)), image-url('pattern.jpg'));
-
+    @include transform-style(preserve-3d);
     font:bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
     height:100%;
     background-color: rgba(217,223,230,0.98);
@@ -59,18 +59,27 @@ section{
 
 
 article{
-    background:image-url('example.png') 50% bottom no-repeat;
     display:table-cell;
     width:100%;
     vertical-align:middle;
+    #example{
+        opacity:0;
+        -webkit-animation:example 500ms 1s ease-out both;
+        position:absolute;
+        bottom:0;left:0;right:0;
+        background:image-url('example.png') 50% bottom no-repeat;
+        height:image-height('example.png');
+    }
 }
 
 
-footer{
+header{
+    padding:1em 0;
+    background:rgba(white,.5);
     line-height:18px;
     position:fixed;
     left:0;right:0;
-    top:10px;
+    top:1em;
     text-align:center;
     font-weight:normal;
     color:#AAA;
@@ -78,9 +87,16 @@ footer{
     a{color:#7D91A9;text-decoration:none;}
     a:hover{color:adjust-lightness(#7D91A9, 10);}
     iframe{
-        position:absolute;
-        bottom:20px;
-        left:50%;margin-left:-50px;
+        margin:1em auto 0;
         width:100px!important;
     }    
+}
+
+
+@-webkit-keyframes example{
+    0%{
+        opacity:0;
+        -webkit-transform:translateY(500px);
+    }
+    100%{opacity:1;}
 }
