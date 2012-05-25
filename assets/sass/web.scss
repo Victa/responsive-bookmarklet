@@ -1,5 +1,7 @@
 @import "compass/reset","compass/css3";
 
+body,html{height:100%;}
+
 body{
     @include background-image(radial-gradient(center, ellipse cover, rgba(255,255,255,.4) 0%,rgba(255,255,255,0) 100%), linear-gradient(top, rgba(240,240,240,0.97), rgba(240,240,240,0.98)), image-url('pattern.jpg'));
 
@@ -9,17 +11,20 @@ body{
     background-repeat: repeat;
 }
 
+section{
+    text-align:center;
+    position:relative;
+    height:100%;
+    width:100%;
+    display:table;
+    table-layout:fixed;
+}
 
 #bookmarklet {     
     @include background-image(linear-gradient(#e3e3e3,#e0e0e0));
     @include box-shadow(inset 0 1px 0 #e9e9e9);
     @include border-radius(4px);
 
-    position: absolute;
-    top:50%;
-    left:50%;
-    margin-top:-12px;
-    margin-left:-87px;
     border: 1px solid #b4b4b4;
     border-bottom-color:#bababa;
     cursor:move;
@@ -53,11 +58,19 @@ body{
 }
 
 
+article{
+    background:image-url('example.png') 50% bottom no-repeat;
+    display:table-cell;
+    width:100%;
+    vertical-align:middle;
+}
+
 
 footer{
+    line-height:18px;
     position:fixed;
     left:0;right:0;
-    bottom:10px;
+    top:10px;
     text-align:center;
     font-weight:normal;
     color:#AAA;
