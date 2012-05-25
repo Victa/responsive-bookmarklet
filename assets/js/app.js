@@ -11,6 +11,7 @@ window.resbook = {};
         devices = null,
         close = null,
         keyboard = null,
+        refreshBtn = null,
         body = null,
         size = null,
         auto = true,
@@ -23,13 +24,24 @@ window.resbook = {};
             tabletLandscape: [768, 1024],
             auto: 'auto'
         },
-        refreshCss = function(){
+        refreshCss = function(disable){
             var ifrm = d.querySelector('#wrapper iframe');
             ifrm = (ifrm.contentWindow) ? ifrm.contentWindow : (ifrm.contentDocument.document) ? ifrm.contentDocument.document : ifrm.contentDocument;
-            var t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','http://responsive.victorcoulon.fr/assets/js/cssrefresh.js');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
-                s = ifrm.document.createElement("script");
-            s.appendChild(t);
-            ifrm.document.body.appendChild(s);
+            var b = ifrm.document.querySelector('body');
+            if(disable){
+                var el = ifrm.document.getElementById('cssrefresh');
+                if(el){
+                    el.parentNode.removeChild(el);
+                    b.classList.remove('cssrefresh');
+                }
+            } else {
+                
+                var t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','http://responsive.victorcoulon.fr/assets/js/cssrefresh.js');script.setAttribute('id','cssrefresh');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
+                    s = ifrm.document.createElement("script");
+                b.classList.add('cssrefresh');
+                s.appendChild(t);
+                ifrm.document.body.appendChild(s);
+            }
         },
         resize = function(w,h,f) {
             w = w || wrapper.clientWidth;
@@ -77,9 +89,16 @@ window.resbook = {};
     rb.changeUrl = function (u,t){
         d.title = t + ' - Responsive test';
         if(history.pushState) {
-            history.pushState(null,  null, u);
+            try {
+                history.pushState({},  "New Page", u);
+            }
+            catch (e) {}
         }
-        //refreshCss();
+        if(refreshBtn.classList.contains('active')){
+            refreshCss();
+        } else {
+            refreshCss(true);
+        }
     };
 
     // "document ready"
@@ -91,6 +110,7 @@ window.resbook = {};
         size = d.getElementById('size');
         close = d.querySelector('.close a');
         keyboard = d.querySelector('.keyboard a');
+        refreshBtn = d.querySelector('.cssrefresh a');
         body = d.querySelector('body');
 
         // Detect webkit browser
@@ -150,6 +170,17 @@ window.resbook = {};
             wrapper.classList.toggle('keyboard');
         }, false);
 
+        refreshBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            refreshBtn.classList.toggle('active');
+            if(refreshBtn.classList.contains('active')){
+                refreshCss();
+            } else {
+                refreshCss(true);
+            }
+        }, false);
+
         w.addEventListener('resize', function(){
             resize();
         }, false);
@@ -171,7 +202,6 @@ window.resbook = {};
 
         }, false);
 
-        //refreshCss();
         resize();
         size.style.minWidth = 0;
 

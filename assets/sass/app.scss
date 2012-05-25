@@ -126,7 +126,7 @@ body>section{
     }
 }
 
-header .keyboard,.close{
+header .keyboard, .cssrefresh, .close{
     @include border-radius(4px);
 
     color:#EEE;
@@ -164,7 +164,11 @@ header .keyboard,.close{
     }
 }
 
-header .keyboard{
+@media screen and (max-width: 480px) {
+   .close{display:none;}
+}
+
+header .keyboard, header .cssrefresh{
     right:auto;
     position:relative;
     top:auto;
@@ -179,10 +183,14 @@ header .keyboard{
         top:0;left:0;right:0;bottom:0;
         background:inline-image('icon-keyboard.png') 50% 50% no-repeat;
     }
+    &.cssrefresh a:after{
+        background:inline-image('icon-cssrefresh.png') 50% 50% no-repeat;   
+    }
 }
 
 #devices{
     @include border-radius(4px);
+    @include transition(all 200ms ease);
 
     position:absolute;
     z-index:1;
@@ -249,11 +257,19 @@ header .keyboard{
         font-size:10px;
     }
 
+    @media screen and (max-width:600px) {
+        margin-left:-54px;
+    }
+
+    @media screen and (max-width:520px) {
+        margin-left:-25px;
+        @include transition(all 0s ease);
+    }
+
     @media screen and (max-width: 480px) {
-        position:relative;
-        top:auto;left:0;
-        float:left;
-        margin:8px 0 0 8px;
+        right:8px;
+        margin:0;
+        left:auto;
     }
 
 }
