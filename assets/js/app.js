@@ -119,7 +119,7 @@ window.resbook = {};
         }
 
         // Disabled css refresh if we are not on server environment
-        if(location.protocol !== 'http:' || location.protocol !== 'https:'){
+        if(w.location.protocol !== 'http:'){
             refreshBtn.setAttribute('style','display:none');
         }
 
