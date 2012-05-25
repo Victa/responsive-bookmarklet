@@ -120,7 +120,7 @@ window.resbook = {};
 
         // Disabled css refresh if we are not on server environment
         if(w.location.protocol !== 'http:'){
-            console.log(w.location.protocol);
+            console.log("ok");
             refreshBtn.setAttribute('style','display:none');
         }
 
