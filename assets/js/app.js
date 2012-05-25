@@ -118,6 +118,11 @@ window.resbook = {};
             //wrapper.setAttribute('scrolling','no');
         }
 
+        // Disabled css refresh if we are not on server environment
+        if(location.protocol !== 'http:' || location.protocol !== 'https:'){
+            refreshBtn.setAttribute('style','display:none');
+        }
+
         // Events
         [].forEach.call(document.querySelectorAll('#devices a'), function(el) {
           el.addEventListener('click', function(e) {
