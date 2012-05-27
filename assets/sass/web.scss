@@ -505,21 +505,34 @@ table {
     border-spacing: 0;
 }
 
+/**
+ * End Normalize.css
+ */
 
-body,html{height:100%;}
-img{max-width:100%;max-height:80%;}
+
+body,html{height:100%;overflow:hidden;}
+
+
 body{
     @include transform-style(preserve-3d);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     color:#fff;
     color:rgba(#fff,.65);
-    background-color: #619ec2;
     -webkit-font-smoothing: antialiased;
     text-shadow:0 1px 1px rgba(0, 0, 0, .3);
+
+    background-color: #619ec2;
+   
+}
+
+img{
+    max-width:100%;
+    max-height:80%;
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-weight:normal;color:#fff;
+    font-weight:normal;
+    color:#fff;
 }
 
 a{
@@ -569,6 +582,7 @@ section{
         display:table-cell;
         width:100%;
         height:100%;
+        padding:0 1em;
         vertical-align:middle;
         hgroup{
             h3,h1{margin:0;}
@@ -680,3 +694,11 @@ footer{
     }
 }
 
+
+@media screen and (max-width: 640px) {
+  body{font-size:14px;}
+  #help{
+    width:300px;
+    margin-left:-150px;
+  }
+}
