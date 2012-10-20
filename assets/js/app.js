@@ -22,6 +22,7 @@ window.resbook = {};
             smartphoneLandscape: [480, 320],
             tabletPortrait: [1024, 768],
             tabletLandscape: [768, 1024],
+            widescreen: [2600, 1024],
             auto: 'auto'
         },
         refreshCss = function(disable){
@@ -35,7 +36,7 @@ window.resbook = {};
                     b.classList.remove('cssrefresh');
                 }
             } else {
-                
+
                 var t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','http://responsive.victorcoulon.fr/assets/js/cssrefresh.js');script.setAttribute('id','cssrefresh');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
                     s = ifrm.document.createElement("script");
                 b.classList.add('cssrefresh');
@@ -143,7 +144,7 @@ window.resbook = {};
                 isResized = true;
                 setPosition(sizes.auto,true);
             }
-     
+
             setTimeout(function(){
                 self.classList.add('active');
                 if(self.classList.contains('smartphone-portrait')){
@@ -154,11 +155,13 @@ window.resbook = {};
                     setPosition(sizes.tabletPortrait, false, 'tabletPortrait');
                 } else if(self.classList.contains('tablet-landscape')){
                     setPosition(sizes.tabletLandscape, false, 'tabletLandscape');
+                } else if(self.classList.contains('widescreen')){
+                    setPosition(sizes.widescreen, false, 'widescreen');
                 } else if(self.classList.contains('auto')){
                     setPosition(sizes.auto, false, 'auto');
                 }
             }, 10);
-            
+
           });
         });
 
@@ -193,11 +196,12 @@ window.resbook = {};
         w.addEventListener('keyup', function(e){
             var key = e.keyCode ? e.keyCode : e.charCode,
                 keys = {
-                    49: 'tabletPortrait',
-                    50: 'tabletLandscape',
-                    51: 'smartphonePortrait',
-                    52: 'smartphoneLandscape',
-                    53: 'auto'
+                    49: 'widescreen',
+                    50: 'tabletPortrait',
+                    51: 'tabletLandscape',
+                    52: 'smartphonePortrait',
+                    53: 'smartphoneLandscape',
+                    54: 'auto'
                 };
 
             // Quit now if the key isn't in our object map
