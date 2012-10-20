@@ -24,7 +24,7 @@ a{color:white}
 #wrapper {
     @include transition(height $transition-duration ease, width $transition-duration ease, margin $transition-duration ease);
     @include box-shadow(0 0 12px 1px black);
-    
+
     -webkit-transform:translate3d(0,0,0);
 
     iframe::-webkit-scrollbar { display: none; }
@@ -41,7 +41,7 @@ a{color:white}
         height: 100%;
     }
     &.noTransitions{
-       @include transition(0);   
+       @include transition(0);
     }
     .keyboard-bg{
         @include translateY(-20px);
@@ -63,7 +63,7 @@ a{color:white}
             opacity:1;
         }
     }
-    
+
     &[data-device="smartphonePortrait"].keyboard {
         padding-bottom:260px;
         .keyboard-bg{background:inline-image('iphone-portrait.png');}
@@ -138,7 +138,7 @@ header .keyboard, .cssrefresh, .close{
     a{
         @include background(linear-gradient(rgba(#343434,1), rgba(#242424,1)));
         @include box-shadow(inset 0 1px 0 #3c3c3c);
-        @include border-radius(4px);        
+        @include border-radius(4px);
 
         text-decoration:none;
         border:1px solid #040404;
@@ -155,7 +155,7 @@ header .keyboard, .cssrefresh, .close{
             @include background(linear-gradient(rgba(#313131,1), rgba(#242424,1)));
         }
     }
-    
+
     a.active,a:active{
         @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
         @include box-shadow(inset 0 1px 0 #242424);
@@ -184,7 +184,7 @@ header .keyboard, header .cssrefresh{
         background:inline-image('icon-keyboard.png') 50% 50% no-repeat;
     }
     &.cssrefresh a:after{
-        background:inline-image('icon-cssrefresh.png') 50% 50% no-repeat;   
+        background:inline-image('icon-cssrefresh.png') 50% 50% no-repeat;
     }
 }
 
@@ -221,7 +221,7 @@ header .keyboard, header .cssrefresh{
             @include background(linear-gradient(rgba(#2c2c2c,1), rgba(#242424,1)));
         }
     }
-    
+
     a.active,a:active{
         @include background(linear-gradient(rgba(#1C1C1C,1), rgba(#242424,1)));
         @include box-shadow(inset 0 1px 0 #242424);
@@ -238,7 +238,11 @@ header .keyboard, header .cssrefresh{
         opacity:.75;
     }
 
-     .tablet-portrait span,.tablet-landscape span{
+    .widescreen span {
+        background:transparent inline-image('icon-widescreen.png') 50% 50% no-repeat;
+    }
+
+    .tablet-portrait span,.tablet-landscape span{
         background:transparent inline-image('icon-ipad.png') 50% 50% no-repeat;
     }
 
