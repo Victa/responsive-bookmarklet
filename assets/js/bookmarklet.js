@@ -21,7 +21,7 @@
           '&#60;div class=&#34;cssrefresh&#34;>' +
             '&#60;a href=&#34;#&#34;>I&#60;/a>' +
           '&#60;/div>' +
-          '&#60;div class=&#34;iframereload&#34;>' +
+          '&#60;div class=&#34;reloadiframe&#34;>' +
             '&#60;a href=&#34;#&#34;>I&#60;/a>' +
           '&#60;/div>' +
           '&#60;div id=&#34;devices&#34;>' +
