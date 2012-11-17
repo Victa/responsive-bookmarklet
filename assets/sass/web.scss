@@ -522,7 +522,7 @@ body{
     text-shadow:0 1px 1px rgba(0, 0, 0, .3);
 
     background-color: #619ec2;
-   
+
 }
 
 img{
@@ -588,7 +588,7 @@ section{
             h3,h1{margin:0;}
             h1{margin-bottom:.24em;}
             margin:0 0 3em;
-        }    
+        }
     }
     &+section{
         background:#FFF;
@@ -637,7 +637,6 @@ footer{
     @include border-radius(4px);
     background:rgba(#fff,.95);
     width:400px;
-    height:320px;
     position:fixed;
     top:50%;left:50%;
     margin-left:-200px;

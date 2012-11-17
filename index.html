@@ -17,7 +17,7 @@
       })();
     </script>
 </head>
-<body>  
+<body>
 
 
     <div id="help">
@@ -41,6 +41,8 @@
                         Toggle CSS Refresh
                         <span>As soon as you save a CSS-file, the changes are directly implemented, without having to refresh your browser. It only works in a server environment.<br>
                         Powered by <a href="http://cssrefresh.frebsite.nl/">CSS Refresh</a></span>
+                        <br/>
+                        <span>In local environments this button will reload just the iframe your test page is in, saving you from having to re-apply the bookmarklet each time - mapped to the F5 and R keys.</span>
                     </p>
                 </li>
                 <li>
@@ -57,7 +59,7 @@
     <a href="#help" class="dim"></a>
 
     <header>
-      <a href="#help">How it works <i>i</i></a>  
+      <a href="#help">How it works <i>i</i></a>
     </header>
 
     <section>
@@ -66,7 +68,7 @@
               <h1>Responsive Design Bookmarklet</h1>
               <h3>a handy tool for responsive design testing</h3>
           </hgroup>
-          <a id="bookmarklet" href="javascript:void((function(){var d=document;d.write('&#60;!DOCTYPE html>&#60;html>&#60;head>&#60;meta charset=&#34;UTF-8&#34;>&#60;title>'+d.title+' - Responsive test&#60;/title>&#60;link rel=&#34;stylesheet&#34; href=&#34;http://responsive.victorcoulon.fr/assets/css/app.css&#34;>&#60;script src=&#34;http://responsive.victorcoulon.fr/assets/js/app.min.js&#34;>&#60;/script>&#60;/head>&#60;body>&#60;header>&#60;div class=&#34;close&#34;>&#60;a href=&#34;#&#34;>&times;&#60;/a>&#60;/div>&#60;div id=&#34;size&#34;>&#60;/div>&#60;div class=&#34;keyboard&#34;>&#60;a href=&#34;#&#34;>I&#60;/a>&#60;/div>&#60;div class=&#34;cssrefresh&#34;>&#60;a href=&#34;#&#34;>I&#60;/a>&#60;/div>&#60;div id=&#34;devices&#34;>&#60;a href=&#34;#&#34; class=&#34;tablet-portrait&#34;>&#60;span>Tablet Portrait&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;tablet-landscape&#34;>&#60;span>Tablet Landscape&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;smartphone-landscape&#34;>&#60;span>iPhone Landscape&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;smartphone-portrait&#34;>&#60;span>iPhone Portrait&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;auto active&#34;>&#60;span>Auto&#60;/span>&#60;/a>&#60;/div>&#60;/header>&#60;section>&#60;div id=&#34;wrapper&#34;>&#60;iframe src=&#34;'+d.URL+'&#34; onLoad=&#34;resbook.changeUrl(this.contentWindow.location,this.contentDocument.title);&#34;>&#60;/iframe>&#60;span class=&#34;keyboard-bg&#34;>&#60;/span>&#60;/div>&#60;/section>&#60;/body>&#60;/html>')})());">RWD Bookmarklet</a><br>
+          <a id="bookmarklet" href="javascript:void((function(){var a=document;a.write('&#60;!DOCTYPE html>&#60;html>&#60;head>&#60;meta charset=&#34;UTF-8&#34;>&#60;title>'+a.title+' - Responsive test &#60;/title>&#60;link rel=&#34;stylesheet&#34; href=&#34;http://responsive.victorcoulon.fr/assets/css/app.css&#34;>&#60;script src=&#34;http://responsive.victorcoulon.fr/assets/js/app.min.js&#34;>&#60;/script>&#60;/head>&#60;body>&#60;header>&#60;div class=&#34;close&#34;>&#60;a href=&#34;#&#34;>&times;&#60;/a>&#60;/div>&#60;div id=&#34;size&#34;>&#60;/div>&#60;div class=&#34;keyboard&#34;>&#60;a href=&#34;#&#34;>I&#60;/a>&#60;/div>&#60;div class=&#34;cssrefresh&#34;>&#60;a href=&#34;#&#34;>I&#60;/a>&#60;/div>&#60;div class=&#34;reloadiframe&#34;>&#60;a href=&#34;#&#34;>I&#60;/a>&#60;/div>&#60;div id=&#34;devices&#34;>&#60;a href=&#34;#&#34; class=&#34;tablet-portrait&#34;>&#60;span>Tablet Portrait&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;tablet-landscape&#34;>&#60;span>Tablet Landscape&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;smartphone-landscape&#34;>&#60;span>iPhone Landscape&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;smartphone-portrait&#34;>&#60;span>iPhone Portrait&#60;/span>&#60;/a>&#60;a href=&#34;#&#34; class=&#34;auto active&#34;>&#60;span>Auto&#60;/span>&#60;/a>&#60;/div>&#60;/header>&#60;section>&#60;div id=&#34;wrapper&#34;>&#60;iframe src=&#34;'+a.URL+'&#34; onLoad=&#34;resbook.changeUrl(this.contentWindow.location,this.contentDocument.title);&#34;>&#60;/iframe>&#60;span class=&#34;keyboard-bg&#34;>&#60;/span>&#60;/div>&#60;/section>&#60;/body>&#60;/html>')})());">RWD Bookmarklet</a><br>
           <span>Drag the link above into your bookmarks bar</span>
       </article>
     </section>
