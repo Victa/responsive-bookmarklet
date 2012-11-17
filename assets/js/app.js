@@ -94,7 +94,6 @@ window.resbook = {};
     keyboard = d.querySelector('.keyboard a');
     refreshBtn = d.querySelector('.cssrefresh a');
     reloadBtn = d.querySelector('.reloadiframe a');
-    console.log(reloadBtn);
     body = d.querySelector('body');
     if (window.chrome || (window.getComputedStyle && !window.globalStorage && !window.opera)) {}
     if (w.location.protocol !== 'http:') {
