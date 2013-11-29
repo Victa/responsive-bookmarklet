@@ -6,8 +6,8 @@
       '&#60;head>' +
         '&#60;meta charset=&#34;UTF-8&#34;>' +
         '&#60;title>'+d.title+' - Responsive test &#60;/title>' +
-        '&#60;link rel=&#34;stylesheet&#34; href=&#34;https://raw.github.com/christiannaths/responsive-bookmarklet/master/assets/css/app.css&#34;>' +
-        '&#60;script src=&#34;https://raw.github.com/christiannaths/responsive-bookmarklet/master/assets/js/app.js&#34;>&#60;/script>' +
+        '&#60;link rel=&#34;stylesheet&#34; href=&#34;http://responsive.victorcoulon.fr/assets/css/app.css&#34;>' +
+        '&#60;script src=&#34;http://responsive.victorcoulon.fr/assets/js/app.min.js&#34;>&#60;/script>' +
       '&#60;/head>' +
       '&#60;body>' +
         '&#60;header>' +
