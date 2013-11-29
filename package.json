@@ -1,0 +1,27 @@
+{
+  "name": "responsive-bookmarklet",
+  "version": "1.0.0",
+  "description": "a simple and powerful bookmarklet for testing responsive design http://responsive.victorcoulon.fr/",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Victa/responsive-bookmarklet.git"
+  },
+  "keywords": [
+    "rwd",
+    "responsive",
+    "bookmarklet",
+    "design"
+  ],
+  "author": "Victor Coulon",
+  "license": "MIT",
+  "readmeFilename": "readme.md",
+  "gitHead": "22a75b7cdc97c2f6fc8f56f4df0f1a787ce46542",
+  "bugs": {
+    "url": "https://github.com/Victa/responsive-bookmarklet/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
+}
