@@ -32,7 +32,7 @@ window.resbook = {};
           b.classList.remove('cssrefresh')
         }
       } else {
-        var t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','http://responsive.victorcoulon.fr/assets/js/cssrefresh.js');script.setAttribute('id','cssrefresh');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
+        var t = ifrm.document.createTextNode("(function(){var script=document.createElement('script');script.setAttribute('src','//responsive.victorcoulon.fr/assets/js/cssrefresh.js');script.setAttribute('id','cssrefresh');var head=document.getElementsByTagName('head');head[0].appendChild(script)})()"),
           s = ifrm.document.createElement("script");
         b.classList.add('cssrefresh');
         s.appendChild(t);
